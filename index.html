@@ -1,0 +1,1359 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="img/logo-on-light.png">
+<title>Amertec Servece Company</title>
+<meta name="description" content="Amertec Servece Company: construcción, electricidad industrial, estructuras metálicas, drywall, gasfitería y sistemas de seguridad en Lima. Solicita tu cotización sin compromiso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one light look on purpose. Navy hero and contact bands bracket white/grey sections sized to fit one laptop screen (~1366×768). */
+:root{
+  --navy:#0B2258;          /* logo field */
+  --band:#0B2258;          /* hero / process / contact bands */
+  --band-2:#132C68;
+  --band-ink:#F2F5FB;
+  --band-muted:#B7C3DD;
+  --orange:#F7931E;        /* bolt orange */
+  --orange-ink:#A24C00;    /* orange for small text on light ground */
+  --on-orange:#0B2258;
+  --bg:#F2F4F8;
+  --surface:#FFFFFF;
+  --fg:#111C34;
+  --heading:#0B2258;
+  --muted:#4D5A74;
+  --line:#DAE0EA;
+  --chip:#E8EDF5;
+  --shadow:0 22px 44px -28px rgba(11,34,88,.45);
+  --scrim:rgba(6,16,42,.78);
+  --header-bg:#FFFFFF;     /* header stays white in both themes */
+  --header-ink:#111C34;
+  --header-line:#DAE0EA;
+
+  --f-display:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --f-body:"Barlow","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --wrap:1200px;
+  --gut-l:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  --header-h:64px;
+  --ease:cubic-bezier(.2,.7,.15,1);
+}
+:root{color-scheme:light}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:.98;letter-spacing:.005em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:calc(var(--wrap) + 64px);margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+@media (min-width:720px){.wrap{padding-left:max(32px, env(safe-area-inset-left,0px));padding-right:max(32px, env(safe-area-inset-right,0px))}}
+
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange-ink);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:32px;height:3px;background:var(--orange);flex:none}
+.h2{font-size:clamp(2.1rem,min(3.6vw,6.4vh),3.4rem);font-weight:800;text-transform:uppercase;color:var(--heading)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:62ch}
+.sec{padding-block:clamp(44px,min(8vw,8vh),88px)}
+.sec-head{display:grid;gap:12px;margin-bottom:clamp(24px,min(4vw,4.5vh),44px)}
+.sec-head.split{grid-template-columns:minmax(0,1fr);align-items:end}
+@media (min-width:900px){.sec-head.split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px}}
+
+/* Buttons */
+.btn{--h:52px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--h);padding:0 24px;border-radius:6px;border:2px solid transparent;font-family:var(--f-display);font-weight:700;font-size:1.08rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .25s var(--ease),background-color .25s,color .25s,border-color .25s;position:relative;overflow:hidden;isolation:isolate}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--orange);color:var(--on-orange)}
+.btn-primary::before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(11,34,88,.13) 10px 20px);transform:translateX(-101%);transition:transform .45s var(--ease)}
+.btn-primary:hover::before{transform:none}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:currentColor;background:transparent}
+.btn-ghost:hover{background:var(--band-ink);color:var(--navy);border-color:var(--band-ink)}
+
+/* Header */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--orange);transform-origin:0 50%;transform:scaleX(var(--sp,0));z-index:60;pointer-events:none}
+.header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--header-bg);color:var(--header-ink);border-bottom:1px solid var(--header-line);transition:box-shadow .3s}
+.header.scrolled{box-shadow:0 10px 30px -22px rgba(11,34,88,.5)}
+.header .wrap{height:var(--header-h);display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.brand img{height:48px;width:auto}
+.nav{margin-left:auto;display:flex;align-items:center;gap:4px}
+.nav a{font-family:var(--f-display);font-weight:600;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--header-ink);padding:10px 14px;border-radius:6px;position:relative}
+.nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav a:hover::after,.nav a.active::after{transform:scaleX(1)}
+.header .btn{--h:44px;padding:0 18px;font-size:1rem}
+.menu-btn{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--header-line);border-radius:8px;background:var(--header-bg);cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--header-ink);position:relative;transition:background .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--header-ink);transition:transform .3s var(--ease)}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-open .menu-btn span{background:transparent}
+.menu-open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+.menu-open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:960px){
+  .menu-btn{display:inline-flex}
+  .header .cta-desk{display:none}
+  .nav{position:absolute;top:var(--header-h);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--header-bg);border-bottom:1px solid var(--header-line);padding:8px var(--gut-r) 16px var(--gut-l);box-shadow:var(--shadow);transform:translateY(-8px);opacity:0;visibility:hidden;transition:transform .3s var(--ease),opacity .25s,visibility .25s}
+  .menu-open .nav{transform:none;opacity:1;visibility:visible}
+  .nav a{padding:14px 4px;border-bottom:1px solid var(--header-line);font-size:1.2rem}
+  .nav a::after{display:none}
+  .nav .btn{margin-top:14px;display:inline-flex}
+}
+@media (min-width:961px){.nav .btn{display:none}}
+
+/* Hero */
+.hero{background:var(--band);color:var(--band-ink);position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;right:-8%;bottom:-40%;width:46%;height:120%;background:var(--orange);transform:skewX(-28deg);z-index:-1;opacity:.95}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:36px;padding-top:clamp(32px,min(6vw,6vh),56px)}
+@media (min-width:960px){.hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}}
+.hero-copy{display:grid;gap:clamp(14px,2.4vh,22px);align-content:center;padding-bottom:clamp(0px,3vw,40px)}
+.hero .eyebrow{color:var(--orange)}
+.hero h1{font-size:clamp(2.6rem,min(5.2vw,8.4vh),4.7rem);font-weight:800;text-transform:uppercase;line-height:.93}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .ln>span{display:inline-block;animation:rise .9s var(--ease) both}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.08s}
+.hero h1 .ln:nth-child(3)>span{animation-delay:.16s}
+.hero h1 em{font-style:normal;color:var(--orange)}
+@keyframes rise{from{transform:translateY(.45em)}to{transform:none}}
+.hero-copy p{color:var(--band-muted);font-size:1.12rem;max-width:52ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.hero-ctas .btn-ghost{color:var(--band-ink)}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:6px;padding:0;list-style:none;font-family:var(--f-mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--band-muted)}
+.hero-tags li{display:flex;align-items:center;gap:8px}
+.hero-tags li::before{content:"";width:7px;height:7px;background:var(--orange);transform:rotate(45deg)}
+
+/* Showcase: photo frame keeps the photos' own 1100×862 proportion, so nothing is cut off */
+.showcase{display:grid;gap:14px;align-self:center;padding-bottom:clamp(32px,min(4.5vw,6vh),56px);min-width:0;width:100%}
+@media (min-width:960px){.showcase{width:min(100%,560px,calc((100svh - 300px) * 1.12));justify-self:end}}
+.frame-wrap{position:relative;isolation:isolate;margin-right:14px}
+.frame-wrap::before{content:"";position:absolute;inset:0;transform:translate(14px,14px);border:3px solid var(--orange);border-radius:12px;z-index:-1}
+.frame{position:relative;aspect-ratio:1100/862;max-width:100%;border-radius:12px;overflow:hidden;background:var(--band-2);box-shadow:0 34px 60px -32px rgba(0,0,0,.7)}
+.slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s ease}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.035);transition:transform 1.6s var(--ease)}
+.slide.on img{transform:none}
+.slide-cap{position:absolute;left:14px;bottom:14px;z-index:2;background:var(--surface);color:var(--fg);border-radius:8px;padding:10px 14px;box-shadow:var(--shadow);max-width:calc(100% - 28px)}
+.slide-cap small{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.16em;color:var(--orange-ink);text-transform:uppercase}
+.slide-cap strong{font-family:var(--f-display);font-size:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em;display:block;line-height:1.15}
+.thumbs-hero{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-right:14px}
+.thumbs-hero button{position:relative;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;aspect-ratio:1100/862;cursor:pointer;background:var(--band-2);opacity:.55;transition:opacity .3s,border-color .3s,transform .3s var(--ease)}
+.thumbs-hero button:hover{opacity:.9;transform:translateY(-2px)}
+.thumbs-hero button[aria-current="true"]{opacity:1;border-color:var(--orange)}
+.thumbs-hero img{width:100%;height:100%;object-fit:cover}
+.thumbs-hero .tb{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(0,0,0,.35)}
+.thumbs-hero .tb i{display:block;height:100%;background:var(--orange);transform-origin:left;transform:scaleX(0)}
+.thumbs-hero button[aria-current="true"] .tb i.run{animation:bar var(--dur,6s) linear forwards}
+@keyframes bar{to{transform:scaleX(1)}}
+
+.stats{position:relative;background:var(--surface);color:var(--fg);border-top:4px solid var(--orange)}
+.stats .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+@media (min-width:860px){.stats .wrap{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{padding:clamp(14px,2.4vh,22px) 18px;display:grid;gap:2px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+@media (max-width:859px){.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.stat b{font-family:var(--f-display);font-size:clamp(1.9rem,3vw,2.5rem);font-weight:800;color:var(--heading);line-height:1;font-variant-numeric:tabular-nums}
+.stat b .u{color:var(--orange-ink)}
+.stat span{color:var(--muted);font-size:.95rem;line-height:1.35}
+
+/* Ticker */
+.ticker{background:var(--orange);color:var(--on-orange);overflow:hidden;position:relative;border-block:3px solid var(--navy)}
+.ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker ul{display:flex;list-style:none;margin:0;padding:14px 0;gap:0}
+.ticker li{font-family:var(--f-display);font-weight:700;font-size:1.25rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center}
+.ticker li::after{content:"";width:9px;height:9px;margin-inline:22px;background:var(--on-orange);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:center}
+@media (min-width:900px){.about{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);align-items:stretch}.about-media{aspect-ratio:auto;min-height:380px}}
+.about-media{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--chip)}
+@media (max-width:899px){.about-media{aspect-ratio:16/11}}
+.about-media img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;object-position:50% 30%;will-change:transform}
+.about-badge{position:absolute;left:0;bottom:0;background:var(--band);color:var(--band-ink);padding:18px 22px 18px 20px;display:flex;gap:14px;align-items:center;border-top-right-radius:10px;max-width:86%}
+.about-badge b{font-family:var(--f-display);font-size:3.4rem;font-weight:800;color:var(--orange);line-height:.9;font-variant-numeric:tabular-nums}
+.about-badge span{font-weight:600;line-height:1.25}
+.about-body{display:grid;gap:clamp(12px,2vh,18px);min-width:0;align-content:center}
+.about-body .lead strong{color:var(--heading)}
+.mv{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:8px}
+@media (min-width:640px){.mv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mv article{padding:clamp(16px,2.4vh,22px) 22px;border-radius:10px;display:grid;gap:10px;align-content:start}
+.mv .mision{background:var(--band);color:var(--band-ink)}
+.mv .mision p{color:var(--band-muted)}
+.mv p{font-size:.97rem;line-height:1.5}
+.mv .vision{background:var(--bg);border:1px solid var(--line)}
+.mv .vision p{color:var(--muted)}
+.mv h3{font-size:1.55rem;font-weight:800;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.mv .vision h3{color:var(--heading)}
+.mv h3 svg{width:34px;height:34px;padding:6px;border-radius:8px;flex:none}
+.mv .mision h3 svg{background:var(--orange);color:var(--on-orange)}
+.mv .vision h3 svg{background:var(--chip);color:var(--orange-ink)}
+.values{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:6px 0 0}
+.values li{display:flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:var(--f-display);font-size:1.15rem;font-weight:700;color:var(--heading);letter-spacing:.02em;transition:transform .3s var(--ease),border-color .3s}
+.values li:hover{transform:translateY(-3px);border-color:var(--orange)}
+.values svg{width:20px;height:20px;color:var(--orange-ink)}
+
+/* Services explorer */
+/* Dark-navy sections: redefine the tokens locally so everything inside follows */
+.tone-dark{--bg:#071024;--surface:#0E1A37;--fg:#E7ECF6;--heading:#FFFFFF;--muted:#A2AEC7;--line:#22335C;--chip:#16264B;--orange-ink:#FFAD52;--on-orange:#0B1D4A;--shadow:0 22px 44px -26px rgba(0,0,0,.7);color-scheme:dark;color:var(--fg)}
+.bg-white{background:var(--surface)}
+.bg-alt{background:var(--bg)}
+.services{background:var(--bg)}
+.svc-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 32px;margin-bottom:clamp(20px,3.4vh,32px)}
+.svc-head>div:first-child{display:grid;gap:10px;min-width:0}
+.svc-ctrl{display:flex;align-items:center;gap:18px}
+.svc-count{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.14em;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;margin:0}
+.svc-count b{color:var(--heading);font-weight:500}
+.svc-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px) / 3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 0 6px;cursor:grab;user-select:none;-webkit-user-select:none}
+.svc-track::-webkit-scrollbar{display:none}
+.svc-track.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+@media (max-width:999px){.svc-track{grid-auto-columns:calc((100% - 20px) / 2)}}
+@media (max-width:640px){.svc-track{grid-auto-columns:86%;gap:14px}}
+.svc-card{scroll-snap-align:start;display:flex;flex-direction:column;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
+.svc-card:hover{transform:translateY(-4px);border-color:var(--orange);box-shadow:var(--shadow)}
+.svc-media{position:relative;height:clamp(130px,22vh,210px);overflow:hidden;background:var(--chip)}
+.svc-media img{width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform .8s var(--ease)}
+.svc-card:hover .svc-media img{transform:scale(1.06)}
+.svc-media .num{position:absolute;top:12px;left:12px;background:var(--orange);color:var(--on-orange);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;padding:5px 9px;border-radius:4px}
+.svc-body{flex:1;display:flex;flex-direction:column;gap:clamp(8px,1.3vh,12px);padding:clamp(14px,2.2vh,20px) 20px clamp(14px,2.2vh,18px)}
+.svc-body h3{font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:.02em;color:var(--heading);line-height:1.02}
+.svc-body .intro{color:var(--muted);font-size:.94rem;line-height:1.45}
+.svc-body .checks li{font-size:.92rem}
+.svc-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid var(--line)}
+.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0;border:0;background:none;cursor:pointer;font-family:var(--f-display);font-weight:700;font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase;color:var(--heading)}
+.more svg{width:16px;height:16px;color:var(--orange);transition:transform .3s var(--ease)}
+.more:hover svg{transform:translateX(4px)}
+.quote{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:6px;border:1px solid var(--line);text-decoration:none;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);transition:background-color .25s,color .25s,border-color .25s}
+.quote:hover{background:var(--orange);border-color:var(--orange);color:var(--on-orange)}
+.svc-bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin-top:clamp(14px,2.4vh,22px)}
+.svc-bar i{display:block;height:100%;background:var(--orange);width:var(--sw,30%);transform:translateX(var(--sx,0%));transition:transform .2s linear}
+
+/* Service detail window */
+.svc-dialog{width:min(1040px,calc(100% - 32px));max-width:none;max-height:calc(100svh - 40px);padding:0;border:0;border-radius:14px;background:var(--surface);color:var(--fg);box-shadow:0 40px 100px -30px rgba(0,0,0,.75);overflow:auto;overscroll-behavior:contain}
+.svc-dialog[open]{animation:dlgIn .45s var(--ease)}
+.svc-dialog::backdrop{background:rgba(4,10,28,.74)}
+@keyframes dlgIn{from{transform:translateY(24px) scale(.98)}to{transform:none}}
+.dlg-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:14px;padding:10px 14px 10px 20px;background:var(--surface);border-bottom:1px solid var(--line)}
+.dlg-bar .pager{margin-left:auto}
+.dlg-close{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;display:grid;place-items:center;transition:background-color .25s,color .25s}
+.dlg-close:hover{background:var(--fg);color:var(--surface)}
+.dlg-close svg{width:18px;height:18px}
+.dlg-body{padding:clamp(18px,3vw,30px)}
+@media (max-width:640px){.svc-dialog{width:100%;max-height:100svh;border-radius:0}}
+html.dlg-open{overflow:hidden}
+/* Short laptop screens (≈1366×768): tighten vertical rhythm so each section fits one screen */
+@media (min-width:960px) and (max-height:720px){
+  .sec{padding-block:34px}
+  .sec-head{margin-bottom:20px}
+  .lead{font-size:1rem}
+  .hero-copy p{font-size:1.02rem}
+  .hero .btn{--h:46px}
+  .svc-body .checks li{font-size:.88rem}
+  .svc-body .intro{font-size:.9rem}
+}
+.panel{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;animation:panelIn .5s var(--ease)}
+@media (min-width:760px){.panel{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:32px}}
+@keyframes panelIn{from{transform:translateY(14px)}to{transform:none}}
+.panel-media{display:grid;gap:10px;min-width:0;align-content:start}
+.panel-main{position:relative;aspect-ratio:3/2;max-width:100%;border-radius:10px;overflow:hidden;background:var(--chip);touch-action:pan-y}
+.panel-main img{width:100%;height:100%;object-fit:cover;animation:imgIn .7s var(--ease)}
+@keyframes imgIn{from{transform:scale(1.06);filter:saturate(.6)}to{transform:none;filter:none}}
+.panel-main .count{position:absolute;top:12px;left:12px;background:var(--orange);color:var(--on-orange);font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;padding:6px 10px;border-radius:4px}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.thumbs button{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:3/2;background:var(--chip);transition:border-color .25s,opacity .25s;opacity:.72}
+.thumbs button:hover{opacity:1}
+.thumbs button[aria-pressed="true"]{border-color:var(--orange);opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.panel-body{display:grid;gap:12px;align-content:start;min-width:0}
+.panel-body .eyebrow{letter-spacing:.18em}
+.panel-body h3{font-size:clamp(1.8rem,2.6vw,2.4rem);font-weight:800;text-transform:uppercase;color:var(--heading)}
+.panel-body .intro{color:var(--muted);font-size:1rem;line-height:1.5}
+.panel-body h4{margin:6px 0 -4px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-ink);font-weight:500}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:clamp(4px,.9vh,8px)}
+.checks li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;line-height:1.4;font-size:.97rem}
+.checks li::before{content:"";width:9px;height:9px;margin-top:.48em;border-top:2.5px solid var(--orange);border-right:2.5px solid var(--orange);transform:rotate(45deg)}
+.panel-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:8px}
+.pager{display:flex;gap:8px}
+.pager button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:grid;place-items:center;transition:background-color .25s,color .25s,border-color .25s,opacity .25s}
+.pager button:hover{background:var(--orange);border-color:var(--orange);color:var(--on-orange)}
+.pager button:disabled{opacity:.35;cursor:default;background:var(--surface);color:var(--fg);border-color:var(--line)}
+.pager svg{width:18px;height:18px}
+/* Process */
+.process{background:var(--surface);color:var(--fg);position:relative;overflow:hidden;isolation:isolate}
+.process::after{content:"";position:absolute;inset:auto -10% -1px auto;width:38%;height:18px;background:var(--orange);transform:skewX(-35deg);z-index:-1}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:0;position:relative;counter-reset:s}
+@media (min-width:900px){.steps{grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}}
+.steps-line{position:absolute;background:var(--line);overflow:hidden}
+.steps-line i{position:absolute;inset:0;background:var(--orange);transform-origin:0 0}
+@media (min-width:900px){.steps-line{left:0;right:0;top:27px;height:3px}.steps-line i{transform:scaleX(var(--p,0))}}
+@media (max-width:899px){.steps-line{left:27px;top:0;bottom:0;width:3px}.steps-line i{transform:scaleY(var(--p,0))}}
+.step{position:relative;display:grid;gap:8px;padding:0 0 24px 76px}
+@media (min-width:900px){.step{padding:0}}
+.step .dot{position:absolute;left:0;top:0;width:57px;height:57px;border-radius:50%;background:var(--surface);border:3px solid var(--line);display:grid;place-items:center;font-family:var(--f-mono);font-size:.9rem;color:var(--muted);transition:background-color .4s,border-color .4s,color .4s}
+@media (min-width:900px){.step .dot{position:relative}}
+.step.lit .dot{background:var(--orange);border-color:var(--orange);color:var(--on-orange)}
+.step h3{font-size:1.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.02em;color:var(--heading)}
+.step p{color:var(--muted);font-size:.98rem;line-height:1.5}
+
+/* Gallery */
+.gal-head{display:flex;align-items:end;gap:24px;flex-wrap:wrap;justify-content:space-between}
+.gal-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px var(--gut-r) 18px var(--gut-l);scrollbar-width:none;cursor:grab;user-select:none;-webkit-user-select:none}
+@media (min-width:720px){.gal-track{padding-left:max(32px, calc((100% - var(--wrap)) / 2));padding-right:max(32px, calc((100% - var(--wrap)) / 2));scroll-padding-inline:max(32px, calc((100% - var(--wrap)) / 2))}}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-track.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.gal-item{flex:none;height:clamp(260px,52svh,440px);width:auto;max-width:80vw;scroll-snap-align:start;position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/5;margin:0;background:var(--chip)}
+.gal-item.wide{aspect-ratio:7/5;max-width:88vw}
+.gal-item img{width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform .8s var(--ease)}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item figcaption{position:absolute;left:12px;bottom:12px;right:12px;background:var(--scrim);color:#fff;padding:8px 12px;border-radius:6px;font-family:var(--f-display);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:1.02rem;backdrop-filter:blur(4px)}
+.gal-bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;flex:1;min-width:120px;max-width:340px}
+.gal-bar i{display:block;height:100%;background:var(--orange);width:var(--gw,20%);transform:translateX(var(--gx,0%));transition:transform .15s linear}
+.gal-ctrl{display:flex;align-items:center;gap:16px}
+
+/* Benefits */
+.ben{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,48px);align-items:center}
+@media (min-width:1000px){.ben{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+.ben-side{display:grid;gap:clamp(12px,2vh,18px);min-width:0}
+.ben-hero{position:relative;height:clamp(130px,20vh,200px);border-radius:10px;overflow:hidden;background:var(--chip)}
+.ben-hero img{position:absolute;inset:-14% 0;width:100%;height:128%;object-fit:cover;will-change:transform}
+.ben-hero .tag{position:absolute;right:12px;top:12px;background:var(--orange);color:var(--on-orange);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;padding:6px 10px;border-radius:4px;text-transform:uppercase}
+.benefits{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+@media (min-width:640px){.benefits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.benefit{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;padding:clamp(14px,2.2vh,20px);border-radius:10px;background:var(--bg);border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.benefit:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--orange)}
+.benefit .ic{width:48px;height:48px;border-radius:10px;background:var(--band);display:grid;place-items:center;color:var(--orange);transition:transform .45s var(--ease)}
+.benefit:hover .ic{transform:rotate(-8deg) scale(1.06)}
+.benefit .ic svg{width:24px;height:24px}
+.benefit h3{font-size:1.25rem;font-weight:800;text-transform:uppercase;color:var(--heading);margin-bottom:4px;letter-spacing:.02em}
+.benefit p{color:var(--muted);font-size:.94rem;line-height:1.45}
+.ally{background:var(--band);color:var(--band-ink);border-radius:10px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center;padding:16px 22px 16px 26px;position:relative;overflow:hidden;isolation:isolate}
+.ally::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--orange)}
+.ally::after{content:"";position:absolute;right:-60px;top:-30%;width:180px;height:160%;z-index:-1;background:repeating-linear-gradient(-45deg,transparent 0 16px,rgba(247,147,30,.16) 16px 32px)}
+.ally b{font-family:var(--f-display);font-size:clamp(2.8rem,6vh,3.8rem);font-weight:800;color:var(--orange);line-height:.85;font-variant-numeric:tabular-nums}
+.ally h3{font-size:1.35rem;font-weight:800;text-transform:uppercase;margin-bottom:2px}
+.ally p{color:var(--band-muted);font-size:.94rem;line-height:1.45}
+
+/* Contact */
+.contact{background:var(--band);color:var(--band-ink);position:relative;overflow:hidden;isolation:isolate}
+.contact-bg{position:absolute;inset:0;z-index:-2}
+.contact-bg img{width:100%;height:100%;object-fit:cover;opacity:.3}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,var(--band) 34%,color-mix(in srgb,var(--band) 70%,transparent))}
+.contact .h2{color:var(--band-ink)}
+.contact .h2 em{font-style:normal;color:var(--orange)}
+.contact .eyebrow{color:var(--orange)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,5vw,56px);align-items:start}
+@media (min-width:960px){.contact-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}}
+.contact-info{display:grid;gap:clamp(12px,2.2vh,20px);min-width:0}
+.contact-info>p{color:var(--band-muted);font-size:1.1rem;max-width:46ch}
+.cards{display:grid;gap:10px}
+.ccard{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.ccard .ic{width:48px;height:48px;border-radius:10px;background:var(--orange);color:var(--on-orange);display:grid;place-items:center}
+.ccard .ic svg{width:24px;height:24px}
+.ccard small{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.18em;color:var(--band-muted);text-transform:uppercase}
+.ccard .v{font-weight:700;font-size:1.12rem;overflow-wrap:anywhere;line-height:1.35;user-select:all}
+.ccard .v a{text-decoration:none}
+.ccard .v a:hover{text-decoration:underline;text-decoration-color:var(--orange)}
+.copy{border:1px solid rgba(255,255,255,.25);background:transparent;color:var(--band-ink);border-radius:6px;min-height:40px;padding:0 12px;cursor:pointer;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;transition:background-color .2s,color .2s}
+.copy:hover{background:var(--band-ink);color:var(--navy)}
+.copy.ok{background:var(--orange);color:var(--on-orange);border-color:var(--orange)}
+.lead-person{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--band-muted)}
+.lead-person b{color:var(--band-ink);font-weight:500}
+
+.form{background:var(--surface);color:var(--fg);border-radius:12px;padding:clamp(20px,min(3vw,3.6vh),32px);box-shadow:0 40px 80px -40px rgba(0,0,0,.6);display:grid;gap:clamp(10px,1.8vh,16px);border-top:5px solid var(--orange)}
+.form h3{font-size:1.8rem;font-weight:800;text-transform:uppercase;color:var(--heading)}
+.form .sub{color:var(--muted);margin-top:-8px}
+.row{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:560px){.row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;min-height:48px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit;font-size:1rem;padding:10px 14px;transition:border-color .2s,box-shadow .2s}
+.field textarea{min-height:84px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px color-mix(in srgb,var(--orange) 22%,transparent)}
+.field.err input,.field.err select{border-color:#C9302C}
+.field .msg{font-size:.85rem;color:#C9302C;min-height:0}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px}
+.form-foot .note{color:var(--muted);font-size:.9rem;flex:1;min-width:200px}
+.form .btn-primary{width:100%}
+@media (min-width:560px){.form .btn-primary{width:auto}}
+
+/* Footer */
+.footer{background:var(--surface);border-top:1px solid var(--line);padding-block:40px 28px}
+.footer .wrap{display:grid;gap:28px}
+.foot-top{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;justify-content:space-between}
+.foot-top .brand img{height:64px}
+.foot-links{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;margin:0;padding:0}
+.foot-links a{text-decoration:none;font-family:var(--f-display);font-weight:600;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.foot-links a:hover{color:var(--heading)}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:.9rem}
+
+/* Floating WhatsApp */
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:10px;background:var(--orange);color:var(--on-orange);text-decoration:none;border-radius:40px;padding:0 20px 0 14px;height:56px;font-family:var(--f-display);font-weight:700;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 16px 32px -14px rgba(0,0,0,.55);transform:translateY(120px);transition:transform .45s var(--ease)}
+.fab.show{transform:none}
+.fab svg{width:26px;height:26px}
+.fab::before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--orange);animation:ping 2.4s ease-out infinite}
+@keyframes ping{from{transform:scale(1);opacity:.8}to{transform:scale(1.35);opacity:0}}
+@media (max-width:520px){.fab span{display:none}.fab{padding:0;width:56px;justify-content:center}}
+
+/* Scroll reveal: elements stay fully visible; only position animates */
+.js .rv{transition:transform .9s var(--ease)}
+.js .rv:not(.in){transform:translateY(28px)}
+.js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .ticker-track{animation:none}
+  .js .rv:not(.in){transform:none}
+  .slide img{transform:none!important}
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Amertec Servece Company, inicio">
+      <img src="img/logo-on-light.png" alt="Amertec Servece Company" width="61" height="52">
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#galeria">Galería</a>
+      <a href="#beneficios">Beneficios</a>
+      <a class="btn btn-primary" href="#contacto">Solicitar cotización</a>
+    </nav>
+    <a class="btn btn-primary cta-desk" href="#contacto">Cotizar</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div>
+</header>
+
+<main id="inicio">
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Amertec Servece Company · Lima</p>
+      <h1 id="hero-title">
+        <span class="ln"><span>Soluciones integrales</span></span>
+        <span class="ln"><span>en <em>construcción</em></span></span>
+        <span class="ln"><span>e <em>ingeniería</em></span></span>
+      </h1>
+      <p>Construimos, electrificamos y protegemos tu proyecto con un único equipo técnico: del diseño y los planos a la ejecución, la puesta en marcha y el mantenimiento.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contacto">Solicitar cotización
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+      </div>
+      <ul class="hero-tags">
+        <li>Empresas</li><li>Industrias</li><li>Hogares</li>
+      </ul>
+    </div>
+
+    <div class="showcase" id="slider" aria-roledescription="carrusel" aria-label="Trabajos de Amertec">
+      <div class="frame-wrap">
+        <div class="frame">
+          <figure class="slide on" data-cap="Techos parabólicos" data-tag="Estructuras e industria"><img src="img/estructuras-hero.jpg" alt="Soldador con arnés montando un techo parabólico de estructura azul" width="1100" height="862" fetchpriority="high"></figure>
+          <figure class="slide" data-cap="Tableros y celdas" data-tag="Electricidad industrial"><img src="img/electricidad-hero.jpg" alt="Técnicos revisando tableros eléctricos industriales" width="1100" height="862"></figure>
+          <figure class="slide" data-cap="Fabricación y soldadura" data-tag="Estructuras metálicas"><img src="img/metalicas-hero.jpg" alt="Soldador trabajando en un eje metálico" width="1100" height="862"></figure>
+          <figure class="slide" data-cap="Cielos rasos y acabados" data-tag="Mantenimiento"><img src="img/mantenimiento-hero.jpg" alt="Técnico de Amertec instalando perfil de cielo raso" width="1100" height="862"></figure>
+          <figure class="slide" data-cap="Obras civiles y edificaciones" data-tag="Construcción y acabados"><img src="img/construccion-hero.jpg" alt="Obreros trabajando en una losa con fierros y herramientas" width="1100" height="862"></figure>
+          <div class="slide-cap" aria-live="polite">
+            <small id="capTag">Estructuras e industria</small>
+            <strong id="capTitle">Techos parabólicos</strong>
+          </div>
+        </div>
+      </div>
+      <div class="thumbs-hero" id="dots" role="group" aria-label="Elegir imagen"></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats tone-dark">
+  <div class="wrap">
+    <div class="stat"><b><span data-count="24">24</span></b><span>servicios especializados en un solo lugar</span></div>
+    <div class="stat"><b><span data-count="10">10</span><span class="u"> áreas</span></b><span>de construcción, electricidad, estructuras y seguridad</span></div>
+    <div class="stat"><b>BT <span class="u">+</span> MT</b><span>instalaciones en baja y media tensión</span></div>
+    <div class="stat"><b>1 <span class="u">equipo</span></b><span>responsable de principio a fin</span></div>
+  </div>
+</div>
+
+<div class="ticker" aria-label="Lista de servicios">
+  <div class="ticker-track">
+    <ul>
+      <li>Obras civiles</li><li>Techos parabólicos</li><li>Subestaciones eléctricas</li><li>Puesta a tierra</li><li>Cámaras CCTV e IP</li><li>Aire acondicionado</li><li>Cercos eléctricos</li><li>Planos y expedientes</li><li>Estructuras metálicas</li><li>Drywall</li><li>Gas natural</li><li>Mezzanines</li><li>Trámites de medidores</li>
+    </ul>
+    <ul aria-hidden="true">
+      <li>Obras civiles</li><li>Techos parabólicos</li><li>Subestaciones eléctricas</li><li>Puesta a tierra</li><li>Cámaras CCTV e IP</li><li>Aire acondicionado</li><li>Cercos eléctricos</li><li>Planos y expedientes</li><li>Estructuras metálicas</li><li>Drywall</li><li>Gas natural</li><li>Mezzanines</li><li>Trámites de medidores</li>
+    </ul>
+  </div>
+</div>
+
+<!-- NOSOTROS -->
+<section class="sec bg-white" id="nosotros" aria-labelledby="about-title">
+  <div class="wrap about">
+    <div class="about-media rv">
+      <img src="img/welder-tall.jpg" alt="Soldador de Amertec sobre una estructura metálica al atardecer" data-parallax="0.12" loading="lazy">
+      <div class="about-badge"><b data-count="24">24</b><span>servicios especializados en un solo lugar</span></div>
+    </div>
+    <div class="about-body">
+      <p class="eyebrow rv">Nosotros</p>
+      <h2 class="h2 rv d1" id="about-title">Quiénes somos</h2>
+      <p class="lead rv d1"><strong>Amertec Servece Company</strong> es una empresa de soluciones integrales en construcción, ingeniería eléctrica, estructuras metálicas y sistemas de seguridad. Acompañamos a empresas, industrias y hogares en cada etapa de su proyecto, con personal técnico calificado y altos estándares de seguridad.</p>
+      <div class="mv">
+        <article class="mision rv d2">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>Misión</h3>
+          <p>Brindar servicios de construcción, ingeniería eléctrica y seguridad con calidad, puntualidad y seguridad en cada etapa, entregando soluciones confiables que impulsen el crecimiento de nuestros clientes.</p>
+        </article>
+        <article class="vision rv d3">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Visión</h3>
+          <p>Ser reconocidos como una empresa líder en soluciones integrales de construcción e ingeniería, referente por la calidad de nuestros trabajos, la innovación y el compromiso con cada cliente.</p>
+        </article>
+      </div>
+      <ul class="values rv d3" aria-label="Nuestros valores">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/></svg>Seguridad</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></svg>Calidad</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg>Responsabilidad</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.1A4.4 4.4 0 0112 7.3a4.4 4.4 0 017.5 2.6C19.5 15.4 12 20 12 20z"/></svg>Compromiso</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="sec services tone-dark" id="servicios" aria-labelledby="serv-title">
+  <div class="wrap">
+    <div class="svc-head">
+      <div>
+        <p class="eyebrow">Servicios</p>
+        <h2 class="h2" id="serv-title">Diez especialidades, un solo proveedor</h2>
+      </div>
+      <div class="svc-ctrl">
+        <p class="svc-count" id="svcCount" aria-live="polite"><b>01–03</b> de 10</p>
+        <div class="pager">
+          <button type="button" id="svcPrev" aria-label="Servicios anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button type="button" id="svcNext" aria-label="Servicios siguientes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="svc-track" id="svcTrack" tabindex="0" aria-label="Servicios, desliza para ver más">
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/construccion-2.jpg" alt="Obreros de Amertec armando losa aligerada" loading="lazy" draggable="false" width="700" height="440"><span class="num">01 / 10</span></div>
+        <div class="svc-body">
+          <h3>Construcción y acabados</h3>
+          <p class="intro">Obra gruesa y acabados para viviendas, locales y edificaciones, desde la cimentación hasta la última mano de pintura.</p>
+          <ul class="checks"><li>Obras civiles y edificaciones.</li><li>Ampliaciones y remodelaciones.</li><li>Cimentaciones y estructuras de concreto.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="0">Ver los 10 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Construcción y acabados">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/estructuras-3.jpg" alt="Personal de Amertec montando vigas de techo parabólico" loading="lazy" draggable="false" width="700" height="440"><span class="num">02 / 10</span></div>
+        <div class="svc-body">
+          <h3>Estructuras e industria</h3>
+          <p class="intro">Techos, coberturas, naves y portones metálicos para patios, cocheras, losas deportivas y plantas industriales.</p>
+          <ul class="checks"><li>Diseño y montaje de estructuras metálicas.</li><li>Techos parabólicos para patios, cocheras y losas deportivas.</li><li>Coberturas para áreas industriales.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="1">Ver los 9 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Estructuras e industria">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/electricidad-1.jpg" alt="Armado de tablero eléctrico con barras de cobre" loading="lazy" draggable="false" width="700" height="440"><span class="num">03 / 10</span></div>
+        <div class="svc-body">
+          <h3>Electricidad industrial</h3>
+          <p class="intro">Instalaciones en baja y media tensión, tableros, pozos a tierra y subestaciones para proyectos industriales y comerciales.</p>
+          <ul class="checks">
+            <li>Instalaciones eléctricas industriales y comerciales.</li>
+            <li>Instalaciones en baja y media tensión.</li>
+            <li>Canalización y cableado estructurado.</li>
+            <li>Tableros de distribución, control y transferencia.</li>
+            <li>Pozos a tierra y medición de resistencia.</li>
+            <li>Subestaciones, transformadores y celdas.</li>
+            <li>Mantenimiento preventivo y correctivo.</li>
+          </ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="2">Ver los 14 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Electricidad industrial">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/seguridad-1.jpg" alt="Unidades condensadoras de aire acondicionado en fachada" loading="lazy" draggable="false" width="700" height="440"><span class="num">04 / 10</span></div>
+        <div class="svc-body">
+          <h3>Seguridad y climatización</h3>
+          <p class="intro">Aire acondicionado y seguridad electrónica para proteger y acondicionar casas, oficinas y plantas.</p>
+          <ul class="checks"><li>Instalación de aire acondicionado split y multisplit.</li><li>Sistemas de aire acondicionado por ductos.</li><li>Mantenimiento de equipos de climatización.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="3">Ver los 9 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Seguridad y climatización">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/ingenieria-1.jpg" alt="Plano de estructuras en pantalla de CAD" loading="lazy" draggable="false" width="700" height="440"><span class="num">05 / 10</span></div>
+        <div class="svc-body">
+          <h3>Ingeniería y diseño</h3>
+          <p class="intro">Planos, expedientes técnicos y renders 3D para licenciar, construir y presentar tu proyecto.</p>
+          <ul class="checks"><li>Planos de arquitectura y distribución.</li><li>Planos de estructuras.</li><li>Planos de instalaciones eléctricas.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="4">Ver los 9 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Ingeniería y diseño">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/metalicas-3.jpg" alt="Soldador de Amertec fabricando un bastidor metálico" loading="lazy" draggable="false" width="700" height="440"><span class="num">06 / 10</span></div>
+        <div class="svc-body">
+          <h3>Estructuras metálicas</h3>
+          <p class="intro">Fabricación y montaje a medida de soportes, plataformas, casetas, barandas y pasarelas.</p>
+          <ul class="checks"><li>Diseño, fabricación y montaje de estructuras metálicas, soportes, plataformas, cerramientos laterales y otras estructuras según requerimiento.</li><li>Diseño y fabricación de casetas de control (Unidad de Monitoreo y Supervisión).</li><li>Habilitación e instalación de tuberías para líneas de agua y aire.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="5">Ver los 6 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Estructuras metálicas">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/mantenimiento-1.jpg" alt="Técnicos de Amertec instalando revestimiento de muro" loading="lazy" draggable="false" width="700" height="440"><span class="num">07 / 10</span></div>
+        <div class="svc-body">
+          <h3>Mantenimiento de infraestructura</h3>
+          <p class="intro">Mantenimiento integral de oficinas, plantas y locales con un solo equipo para cada oficio.</p>
+          <ul class="checks"><li>Pintado y resane de superficies murales.</li><li>Instalación y mantenimiento de revestimientos cerámicos y porcelanatos.</li><li>Elaboración y mantenimiento de mobiliario en carpintería y melamina.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="6">Ver los 9 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Mantenimiento de infraestructura">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/drywall-2.jpg" alt="Oficina con divisiones de vidrio y perfilería" loading="lazy" draggable="false" width="700" height="440"><span class="num">08 / 10</span></div>
+        <div class="svc-body">
+          <h3>Sistema drywall</h3>
+          <p class="intro">Tabiques, cielos rasos y revestimientos livianos entregados con acabado listo para usar.</p>
+          <ul class="checks"><li>Tabiques y muros divisorios.</li><li>Divisiones para oficinas y locales comerciales.</li><li>Cielos rasos y falsos techos, lisos o registrables.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="7">Ver los 8 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Sistema drywall">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/gasfiteria-2.jpg" alt="Red de tuberías y equipos de tratamiento de agua" loading="lazy" draggable="false" width="700" height="440"><span class="num">09 / 10</span></div>
+        <div class="svc-body">
+          <h3>Gasfitería y gas natural</h3>
+          <p class="intro">Redes de agua y desagüe, e instalaciones de gas natural con los trámites ante la distribuidora.</p>
+          <ul class="checks"><li>Detección y reparación de fugas.</li><li>Instalación de aparatos sanitarios y griferías.</li><li>Redes de agua fría, caliente y desagüe.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="8">Ver los 8 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Gasfitería y gas natural">Cotizar</a>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-media"><img src="img/tramites-1.jpg" alt="Banco de medidores de luz" loading="lazy" draggable="false" width="700" height="440"><span class="num">10 / 10</span></div>
+        <div class="svc-body">
+          <h3>Trámites y mezzanines</h3>
+          <p class="intro">Gestionamos tus suministros de luz y agua hasta la conexión, y ganamos espacio con mezzanines a medida.</p>
+          <ul class="checks"><li>Nuevos suministros de luz y agua.</li><li>Independización de medidores.</li><li>Aumento de carga eléctrica.</li></ul>
+          <div class="svc-foot">
+            <button type="button" class="more" data-open="9">Ver los 8 servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="quote" href="#contacto" data-service="Trámites y mezzanines">Cotizar</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="svc-bar" aria-hidden="true"><i id="svcBar"></i></div>
+  </div>
+
+  <dialog class="svc-dialog" id="svcDialog" aria-label="Detalle del servicio">
+    <div class="dlg-bar">
+      <span class="svc-count" id="dlgCount">01 / 10</span>
+      <div class="pager">
+        <button type="button" id="dlgPrev" aria-label="Servicio anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button type="button" id="dlgNext" aria-label="Servicio siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <button type="button" class="dlg-close" id="dlgClose" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="dlg-body" id="panels">
+      <div class="panel" id="p-construccion" data-service="Construcción y acabados" data-imgs="construccion-2|Obreros de Amertec armando losa aligerada;construccion-1|Técnico de Amertec enchapando porcelanato;construccion-3|Cocina terminada con muebles a medida">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 01 / 10</p>
+            <h3>Construcción y acabados</h3>
+            <p class="intro">Obra gruesa y acabados para viviendas, locales y edificaciones, desde la cimentación hasta la última mano de pintura.</p>
+            <ul class="checks">
+              <li>Obras civiles y edificaciones.</li>
+              <li>Ampliaciones y remodelaciones.</li>
+              <li>Cimentaciones y estructuras de concreto.</li>
+              <li>Albañilería en general.</li>
+              <li>Tarrajeos, empastes y resanes.</li>
+              <li>Enchapes de cerámico y porcelanato.</li>
+              <li>Pintura interior y exterior.</li>
+              <li>Carpintería general: muebles a medida en madera y melamina.</li>
+              <li>Fabricación e instalación de puertas y ventanas.</li>
+              <li>Tabiques y cielos rasos en sistema drywall.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Construcción y acabados">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-estructuras" hidden data-service="Estructuras e industria" data-imgs="estructuras-3|Personal de Amertec montando vigas de techo parabólico;estructuras-1|Nave industrial con estructura metálica;estructuras-2|Instalación de rejas metálicas con acabado anticorrosivo">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 02 / 10</p>
+            <h3>Estructuras e industria</h3>
+            <p class="intro">Techos, coberturas, naves y portones metálicos para patios, cocheras, losas deportivas y plantas industriales.</p>
+            <ul class="checks">
+              <li>Diseño y montaje de estructuras metálicas.</li>
+              <li>Techos parabólicos para patios, cocheras y losas deportivas.</li>
+              <li>Coberturas para áreas industriales.</li>
+              <li>Portones y puertas metálicas batientes, corredizas o seccionales.</li>
+              <li>Rejas metálicas con acabado anticorrosivo.</li>
+              <li>Naves industriales y almacenes.</li>
+              <li>Galpones y plantas industriales.</li>
+              <li>Mantenimiento preventivo y correctivo de instalaciones.</li>
+              <li>Mantenimiento de infraestructura y equipos.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Estructuras e industria">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-electricidad" hidden data-service="Electricidad industrial" data-imgs="electricidad-1|Armado de tablero eléctrico con barras de cobre;electricidad-2|Técnico de Amertec instalando tablero de distribución;electricidad-3|Subestación eléctrica con transformadores">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 03 / 10</p>
+            <h3>Electricidad industrial</h3>
+            <p class="intro">Diseño, instalación y mantenimiento eléctrico en baja y media tensión: pozos a tierra, canalización y cableado, tableros, subestaciones y todo el sistema eléctrico de tu planta o local.</p>
+            <h4>Diseño e instalaciones</h4>
+            <ul class="checks">
+              <li>Diseño de instalaciones eléctricas industriales.</li>
+              <li>Instalaciones eléctricas industriales y comerciales.</li>
+              <li>Instalaciones en baja y media tensión.</li>
+              <li>Sistemas de fuerza e iluminación.</li>
+              <li>Iluminación industrial, LED y alumbrado de emergencia.</li>
+              <li>Canalización y cableado estructurado.</li>
+              <li>Bandejas portacables y tubería conduit.</li>
+            </ul>
+            <h4>Tableros y puesta a tierra</h4>
+            <ul class="checks">
+              <li>Armado e instalación de tableros eléctricos.</li>
+              <li>Tableros de distribución, control y transferencia.</li>
+              <li>Tableros de arranque y variadores de frecuencia.</li>
+              <li>Pozos a tierra y sistemas de puesta a tierra.</li>
+              <li>Medición, protocolos y certificados de pozos a tierra.</li>
+            </ul>
+            <h4>Subestaciones y mantenimiento</h4>
+            <ul class="checks">
+              <li>Implementación de subestaciones eléctricas para proyectos industriales.</li>
+              <li>Montaje de transformadores y celdas.</li>
+              <li>Mantenimiento preventivo y correctivo de instalaciones eléctricas.</li>
+              <li>Diagnóstico de fallas y corrección de tableros.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Electricidad industrial">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-seguridad" hidden data-service="Seguridad y climatización" data-imgs="seguridad-1|Unidades condensadoras de aire acondicionado en fachada;seguridad-2|Teclado de control de acceso iluminado;seguridad-3|Cerco eléctrico perimétrico sobre muro">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 04 / 10</p>
+            <h3>Seguridad y climatización</h3>
+            <p class="intro">Aire acondicionado y seguridad electrónica para proteger y acondicionar casas, oficinas y plantas.</p>
+            <ul class="checks">
+              <li>Instalación de aire acondicionado split y multisplit.</li>
+              <li>Sistemas de aire acondicionado por ductos.</li>
+              <li>Mantenimiento de equipos de climatización.</li>
+              <li>Cámaras de videovigilancia CCTV e IP.</li>
+              <li>Monitoreo remoto desde tu celular.</li>
+              <li>Sistemas de alarma contra intrusos.</li>
+              <li>Detección de humo, sensores y sirenas.</li>
+              <li>Cercos eléctricos perimétricos.</li>
+              <li>Energizadores, alarma y señalización para cercos.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Seguridad y climatización">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-ingenieria" hidden data-service="Ingeniería y diseño" data-imgs="ingenieria-1|Plano de estructuras en pantalla de CAD;ingenieria-2|Render 3D de fachada de vivienda;ingenieria-3|Ingenieros revisando un modelo 3D en monitores">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 05 / 10</p>
+            <h3>Ingeniería y diseño</h3>
+            <p class="intro">Planos, expedientes técnicos y renders 3D para licenciar, construir y presentar tu proyecto.</p>
+            <ul class="checks">
+              <li>Planos de arquitectura y distribución.</li>
+              <li>Planos de estructuras.</li>
+              <li>Planos de instalaciones eléctricas.</li>
+              <li>Planos de instalaciones sanitarias.</li>
+              <li>Expedientes técnicos para licencias.</li>
+              <li>Planos para ejecución de obra.</li>
+              <li>Modelado y renders 3D.</li>
+              <li>Diseño de interiores y fachadas.</li>
+              <li>Propuestas y anteproyectos.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Ingeniería y diseño">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-metalicas" hidden data-service="Estructuras metálicas" data-imgs="metalicas-3|Soldador de Amertec fabricando un bastidor metálico;metalicas-1|Escalera metálica con pasos de madera y baranda de acero;metalicas-2|Soldadura de estructura metálica en obra">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 06 / 10</p>
+            <h3>Estructuras metálicas</h3>
+            <p class="intro">Fabricación y montaje a medida de soportes, plataformas, casetas, barandas y pasarelas.</p>
+            <ul class="checks">
+              <li>Diseño, fabricación y montaje de estructuras metálicas, soportes, plataformas, cerramientos laterales y otras estructuras según requerimiento.</li>
+              <li>Diseño y fabricación de casetas de control (Unidad de Monitoreo y Supervisión).</li>
+              <li>Habilitación e instalación de tuberías para líneas de agua y aire.</li>
+              <li>Suministro e instalación de barandas, pasamanos, escaleras industriales y pasarelas metálicas.</li>
+              <li>Recubrimiento de materiales y aplicación de pintura industrial.</li>
+              <li>Mantenimiento de estructuras metálicas.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Estructuras metálicas">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-mantenimiento" hidden data-service="Mantenimiento de infraestructura" data-imgs="mantenimiento-1|Técnicos de Amertec instalando revestimiento de muro;mantenimiento-2|Piso con recubrimiento epóxico industrial;mantenimiento-3|Llave en cerradura de puerta">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 07 / 10</p>
+            <h3>Mantenimiento de infraestructura</h3>
+            <p class="intro">Mantenimiento integral de oficinas, plantas y locales con un solo equipo para cada oficio.</p>
+            <ul class="checks">
+              <li>Pintado y resane de superficies murales.</li>
+              <li>Instalación y mantenimiento de revestimientos cerámicos y porcelanatos.</li>
+              <li>Elaboración y mantenimiento de mobiliario en carpintería y melamina.</li>
+              <li>Aplicación de recubrimientos epóxicos de uso industrial.</li>
+              <li>Instalación de vidrio templado y laminado de seguridad.</li>
+              <li>Mantenimiento de instalaciones sanitarias (gasfitería).</li>
+              <li>Sistemas de cerrajería.</li>
+              <li>Montaje y reparación de sistemas livianos tipo drywall.</li>
+              <li>Ejecución de trabajos de albañilería general.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Mantenimiento de infraestructura">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-drywall" hidden data-service="Sistema drywall" data-imgs="drywall-2|Oficina con divisiones de vidrio y perfilería;drywall-1|Cielo raso de drywall en proceso de masillado;drywall-3|Detalle de cielo raso con juntas terminadas">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 08 / 10</p>
+            <h3>Sistema drywall</h3>
+            <p class="intro">Tabiques, cielos rasos y revestimientos livianos entregados con acabado listo para usar.</p>
+            <ul class="checks">
+              <li>Tabiques y muros divisorios.</li>
+              <li>Divisiones para oficinas y locales comerciales.</li>
+              <li>Cielos rasos y falsos techos, lisos o registrables.</li>
+              <li>Muros con aislamiento acústico y térmico.</li>
+              <li>Revestimiento de muros y columnas.</li>
+              <li>Muebles, nichos y detalles decorativos.</li>
+              <li>Masillado, empaste y pintura final.</li>
+              <li>Reparación y mantenimiento de drywall.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Sistema drywall">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-gasfiteria" hidden data-service="Gasfitería y gas natural" data-imgs="gasfiteria-2|Red de tuberías y equipos de tratamiento de agua;gasfiteria-1|Trazado con nivel láser para redes sanitarias;gasfiteria-3|Técnico instalando grifería bajo lavatorio">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 09 / 10</p>
+            <h3>Gasfitería y gas natural</h3>
+            <p class="intro">Redes de agua y desagüe, e instalaciones de gas natural con los trámites ante la distribuidora.</p>
+            <h4>Gasfitería</h4>
+            <ul class="checks">
+              <li>Detección y reparación de fugas.</li>
+              <li>Instalación de aparatos sanitarios y griferías.</li>
+              <li>Redes de agua fría, caliente y desagüe.</li>
+              <li>Desatoros y mantenimiento preventivo.</li>
+            </ul>
+            <h4>Gas natural</h4>
+            <ul class="checks">
+              <li>Instalaciones internas residenciales y comerciales.</li>
+              <li>Trámites y documentación ante la distribuidora.</li>
+              <li>Pruebas de hermeticidad.</li>
+              <li>Conexión de cocinas y termas.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Gasfitería y gas natural">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+      <div class="panel" id="p-tramites" hidden data-service="Trámites y mezzanines" data-imgs="tramites-1|Banco de medidores de luz;tramites-3|Mezzanine industrial con estanterías;tramites-2|Medidor de gas con lectura">
+          <div class="panel-media"></div>
+          <div class="panel-body">
+            <p class="eyebrow">Servicios · 10 / 10</p>
+            <h3>Trámites y mezzanines</h3>
+            <p class="intro">Gestionamos tus suministros de luz y agua hasta la conexión, y ganamos espacio con mezzanines a medida.</p>
+            <h4>Trámites de medidores de luz y agua</h4>
+            <ul class="checks">
+              <li>Nuevos suministros de luz y agua.</li>
+              <li>Independización de medidores.</li>
+              <li>Aumento de carga eléctrica.</li>
+              <li>Seguimiento del expediente hasta la conexión.</li>
+            </ul>
+            <h4>Mezzanine industrial y para departamentos</h4>
+            <ul class="checks">
+              <li>Mezzanines para almacenes y plantas.</li>
+              <li>Mezzanines para departamentos y oficinas.</li>
+              <li>Pisos, escaleras y barandas de seguridad.</li>
+              <li>Estructura metálica a la medida.</li>
+            </ul>
+            <div class="panel-actions"><a class="btn btn-primary" href="#contacto" data-service="Trámites y mezzanines">Cotizar este servicio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+      </div>
+    </div>
+  </dialog>
+</section>
+
+<!-- PROCESO -->
+<section class="sec process" id="proceso" aria-labelledby="proc-title">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div style="display:grid;gap:14px">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2 class="h2" id="proc-title">Del diseño a la puesta en marcha</h2>
+      </div>
+      <p class="lead">Te acompañamos en cada etapa con el mismo equipo técnico, para que no tengas que coordinar a varios proveedores.</p>
+    </div>
+    <ol class="steps" id="steps">
+      <li class="steps-line" aria-hidden="true"><i></i></li>
+      <li class="step"><span class="dot">01</span><h3>Diseño</h3><p>Visitamos el lugar, entendemos la necesidad y proponemos la solución técnica con su cotización.</p></li>
+      <li class="step"><span class="dot">02</span><h3>Planos</h3><p>Arquitectura, estructuras e instalaciones, más el expediente técnico si tu obra necesita licencia.</p></li>
+      <li class="step"><span class="dot">03</span><h3>Ejecución</h3><p>Personal calificado, equipos de protección y protocolos de seguridad en cada obra.</p></li>
+      <li class="step"><span class="dot">04</span><h3>Puesta en marcha</h3><p>Pruebas, mediciones y protocolos antes de entregar, en los plazos acordados.</p></li>
+      <li class="step"><span class="dot">05</span><h3>Mantenimiento</h3><p>Seguimiento post-servicio y mantenimiento preventivo y correctivo de lo que entregamos.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="sec bg-alt tone-dark" id="galeria" aria-labelledby="gal-title">
+  <div class="wrap">
+    <div class="sec-head gal-head">
+      <div style="display:grid;gap:14px">
+        <p class="eyebrow">Galería</p>
+        <h2 class="h2" id="gal-title">En obra</h2>
+      </div>
+      <div class="gal-ctrl">
+        <div class="gal-bar" aria-hidden="true"><i id="galBar"></i></div>
+        <div class="pager">
+          <button type="button" id="galPrev" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button type="button" id="galNext" aria-label="Fotos siguientes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gal-track" id="galTrack" tabindex="0" aria-label="Galería de trabajos, desliza para ver más">
+    <figure class="gal-item wide"><img src="img/estructuras-3.jpg" alt="Montaje de vigas para techo parabólico" loading="lazy" draggable="false"><figcaption>Techos parabólicos</figcaption></figure>
+    <figure class="gal-item"><img src="img/electricidad-2.jpg" alt="Técnico instalando tablero eléctrico" loading="lazy" draggable="false"><figcaption>Tableros eléctricos</figcaption></figure>
+    <figure class="gal-item wide"><img src="img/drywall-hero.jpg" alt="Técnico de Amertec instalando cielo raso en drywall" loading="lazy" draggable="false"><figcaption>Cielos rasos en drywall</figcaption></figure>
+    <figure class="gal-item"><img src="img/construccion-1.jpg" alt="Enchape de porcelanato" loading="lazy" draggable="false"><figcaption>Enchapes</figcaption></figure>
+    <figure class="gal-item wide"><img src="img/metalicas-3.jpg" alt="Fabricación de bastidor metálico" loading="lazy" draggable="false"><figcaption>Estructuras metálicas</figcaption></figure>
+    <figure class="gal-item"><img src="img/estructuras-2.jpg" alt="Instalación de rejas metálicas" loading="lazy" draggable="false"><figcaption>Rejas metálicas</figcaption></figure>
+    <figure class="gal-item wide"><img src="img/drywall-2.jpg" alt="Oficina con divisiones" loading="lazy" draggable="false"><figcaption>Divisiones de oficina</figcaption></figure>
+    <figure class="gal-item"><img src="img/mantenimiento-1.jpg" alt="Revestimiento de muro" loading="lazy" draggable="false"><figcaption>Revestimientos</figcaption></figure>
+    <figure class="gal-item wide"><img src="img/electricidad-3.jpg" alt="Subestación eléctrica" loading="lazy" draggable="false"><figcaption>Subestaciones</figcaption></figure>
+    <figure class="gal-item"><img src="img/gasfiteria-3.jpg" alt="Instalación sanitaria" loading="lazy" draggable="false"><figcaption>Gasfitería</figcaption></figure>
+    <figure class="gal-item wide"><img src="img/tramites-3.jpg" alt="Mezzanine con estanterías" loading="lazy" draggable="false"><figcaption>Mezzanines</figcaption></figure>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="sec bg-white" id="beneficios" aria-labelledby="ben-title">
+  <div class="wrap ben">
+    <div class="ben-side">
+      <p class="eyebrow">Beneficios</p>
+      <h2 class="h2" id="ben-title">¿Por qué elegir Amertec?</h2>
+      <p class="lead">Un solo proveedor para construcción, electricidad, estructuras y seguridad, con respaldo después de entregar.</p>
+      <div class="ben-hero"><img src="img/team-site.jpg" alt="Equipo de ingenieros y técnicos en una losa en construcción" data-parallax="0.18" loading="lazy"><span class="tag">Seguridad ante todo</span></div>
+      <div class="ally">
+        <b data-count="24">24</b>
+        <div><h3>Servicios, un solo aliado</h3><p>Construimos, electrificamos y protegemos tu proyecto con un único equipo responsable de principio a fin.</p></div>
+      </div>
+    </div>
+    <div class="benefits">
+      <article class="benefit rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17.5l9 5 9-5" opacity=".55"/></svg></div><div><h3>Soluciones integrales</h3><p>Un solo proveedor para construcción, electricidad, estructuras y seguridad.</p></div></article>
+      <article class="benefit rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 010 6.8M18.5 14.8c1.7.8 2.8 2.6 3 5.2"/></svg></div><div><h3>Personal calificado</h3><p>Técnicos e ingenieros con experiencia y capacitación constante.</p></div></article>
+      <article class="benefit rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><div><h3>Seguridad ante todo</h3><p>Trabajamos con equipos de protección y protocolos de seguridad en cada obra.</p></div></article>
+      <article class="benefit rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div><div><h3>Cumplimiento de plazos</h3><p>Planificamos cada etapa y entregamos en los tiempos acordados.</p></div></article>
+      <article class="benefit rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></svg></div><div><h3>Materiales de calidad</h3><p>Usamos materiales y equipos de marcas reconocidas y garantizadas.</p></div></article>
+      <article class="benefit rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg></div><div><h3>Atención y garantía</h3><p>Seguimiento post-servicio y respaldo en cada trabajo que entregamos.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="sec contact" id="contacto" aria-labelledby="contact-title">
+  <div class="contact-bg" aria-hidden="true"><img src="img/crane.jpg" alt="" loading="lazy"></div>
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow">Contacto</p>
+      <h2 class="h2" id="contact-title">Hablemos de tu <em>proyecto</em></h2>
+      <p>Solicita tu cotización sin compromiso y recibe la asesoría de nuestro equipo técnico.</p>
+      <div class="cards">
+        <div class="ccard">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16.4v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 011.1 3.7 2 2 0 013.1 1.5h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L7.1 9.4a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg></span>
+          <div><small>Celular / WhatsApp</small><div class="v"><a href="tel:+51953082717">953 082 717</a></div></div>
+          <button class="copy" type="button" data-copy="953082717">Copiar</button>
+        </div>
+        <div class="ccard">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg></span>
+          <div><small>Correo</small><div class="v"><a href="mailto:amertecservece@gmail.com">amertecservece@gmail.com</a></div></div>
+          <button class="copy" type="button" data-copy="amertecservece@gmail.com">Copiar</button>
+        </div>
+        <div class="ccard">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <div><small>Dirección</small><div class="v">Mz. C6 Lt. 21, Urb. Santa María etapa 21, Carabayllo</div></div>
+          <a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="https://www.google.com/maps/search/?api=1&amp;query=Urbanizaci%C3%B3n%20Santa%20Mar%C3%ADa%20etapa%2021%20Carabayllo%20Lima" target="_blank" rel="noopener">Mapa</a>
+        </div>
+      </div>
+      <p class="lead-person">Jefe de operaciones · <b>Ammer Rodríguez Verde</b></p>
+    </div>
+
+    <form class="form rv" id="quote" novalidate>
+      <h3>Solicita tu cotización</h3>
+      <p class="sub">Completa los datos y te llevamos a WhatsApp con el mensaje listo para enviar.</p>
+      <div class="row">
+        <div class="field"><label for="f-name">Nombre</label><input id="f-name" name="name" autocomplete="name" required placeholder="Tu nombre"><span class="msg" aria-live="polite"></span></div>
+        <div class="field"><label for="f-company">Empresa (opcional)</label><input id="f-company" name="company" autocomplete="organization" placeholder="Razón social"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-phone">Celular</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="9XX XXX XXX"><span class="msg" aria-live="polite"></span></div>
+        <div class="field"><label for="f-service">Servicio</label>
+          <select id="f-service" name="service" required>
+            <option value="">Elige un servicio</option>
+            <option>Construcción y acabados</option>
+            <option>Estructuras e industria</option>
+            <option>Electricidad industrial</option>
+            <option>Seguridad y climatización</option>
+            <option>Ingeniería y diseño</option>
+            <option>Estructuras metálicas</option>
+            <option>Mantenimiento de infraestructura</option>
+            <option>Sistema drywall</option>
+            <option>Gasfitería y gas natural</option>
+            <option>Trámites y mezzanines</option>
+            <option>Proyecto completo / varios servicios</option>
+          </select><span class="msg" aria-live="polite"></span></div>
+      </div>
+      <div class="field"><label for="f-msg">Cuéntanos tu proyecto</label><textarea id="f-msg" name="message" placeholder="Ubicación, medidas aproximadas, plazos…"></textarea></div>
+      <div class="form-foot">
+        <a class="btn btn-primary" id="waSend" href="https://wa.me/51953082717" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px"><path d="M21 11.5a8.4 8.4 0 01-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1121 11.5z"/></svg>
+          Enviar por WhatsApp</a>
+        <p class="note" id="formNote">Respuesta en horario laboral.</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer tone-dark">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="#inicio" aria-label="Amertec Servece Company, volver al inicio">
+        <img src="img/logo-on-dark.png" alt="Amertec Servece Company" width="75" height="64">
+      </a>
+      <ul class="foot-links">
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Amertec Servece Company · Carabayllo, Lima</span>
+      <span>953 082 717 · amertecservece@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/51953082717?text=Hola%20Amertec%2C%20quisiera%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 01-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1121 11.5z"/><path d="M8.5 10.5c.3 1.8 2.2 3.8 4.2 4.3l1.3-1.2 1.8.7"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+(function(){
+  const doc=document.documentElement;
+  doc.classList.add('js');
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+
+  /* Header, progress, FAB, active nav */
+  const header=$('#header'), prog=$('#progress'), fab=$('#fab');
+  const navLinks=$$('.nav a[href^="#"]:not(.btn)');
+  const sections=navLinks.map(a=>$(a.getAttribute('href'))).filter(Boolean);
+  function onScroll(){
+    const y=window.scrollY, h=doc.scrollHeight-window.innerHeight;
+    header.classList.toggle('scrolled',y>8);
+    prog.style.setProperty('--sp',h>0?(y/h).toFixed(4):0);
+    fab.classList.toggle('show',y>window.innerHeight*.6);
+    let cur=null;
+    sections.forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight*.35)cur=s.id});
+    navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+    parallax(); processLine();
+  }
+
+  /* Mobile menu */
+  const menuBtn=$('#menuBtn');
+  menuBtn.addEventListener('click',()=>{
+    const open=!doc.classList.contains('menu-open');
+    doc.classList.toggle('menu-open',open);
+    menuBtn.setAttribute('aria-expanded',open);
+    menuBtn.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');
+  });
+  $$('#nav a').forEach(a=>a.addEventListener('click',()=>{doc.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Abrir menú')}));
+
+  /* Hero slider */
+  const slides=$$('#slider .slide'), dots=$('#dots');
+  const capT=$('#capTitle'), capG=$('#capTag');
+  const DUR=6000; let si=0, timer=null, paused=false;
+  const bars=[];
+  slides.forEach((s,i)=>{
+    const b=document.createElement('button');
+    b.type='button'; b.setAttribute('aria-label','Ver imagen '+(i+1)+': '+s.dataset.cap);
+    b.setAttribute('aria-current',i===0?'true':'false');
+    const t=document.createElement('img'); t.src=s.querySelector('img').src; t.alt=''; t.width=110; t.height=86;
+    const tb=document.createElement('span'); tb.className='tb'; const bi=document.createElement('i'); tb.appendChild(bi); bars.push(bi);
+    b.append(t,tb);
+    b.addEventListener('click',()=>{go(i);restart()});
+    dots.appendChild(b);
+  });
+  function go(i){
+    si=(i+slides.length)%slides.length;
+    slides.forEach((s,k)=>s.classList.toggle('on',k===si));
+    $$('button',dots).forEach((b,k)=>b.setAttribute('aria-current',k===si?'true':'false'));
+    capT.textContent=slides[si].dataset.cap; capG.textContent=slides[si].dataset.tag;
+  }
+  function runBar(){
+    bars.forEach(x=>x.classList.remove('run'));
+    const bar=bars[si]; void bar.offsetWidth; bar.style.setProperty('--dur',DUR+'ms'); bar.style.animationPlayState='running';
+    if(!reduce)bar.classList.add('run');
+  }
+  // advance when the active thumbnail's bar fills (hover pauses the bar, so it pauses the carousel too)
+  bars.forEach((bi,k)=>bi.addEventListener('animationend',()=>{if(k===si&&!reduce){go(si+1);runBar()}}));
+  function restart(){runBar()}
+  const slider=$('#slider');
+  slider.addEventListener('mouseenter',()=>{paused=true;bars[si].style.animationPlayState='paused'});
+  slider.addEventListener('mouseleave',()=>{paused=false;bars[si].style.animationPlayState='running'});
+  let sx=null;
+  slider.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  slider.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45){go(si+(dx<0?1:-1));restart()}sx=null});
+  restart();
+
+  /* Services: cards 3 at a time */
+  const svcTrack=$('#svcTrack'), svcCards=$$('.svc-card',svcTrack), svcCount=$('#svcCount'), svcBar=$('#svcBar');
+  const sPrev=$('#svcPrev'), sNext=$('#svcNext');
+  const cardStep=()=>svcCards[0].getBoundingClientRect().width+parseFloat(getComputedStyle(svcTrack).columnGap||20);
+  function perView(){return Math.max(1,Math.round(svcTrack.clientWidth/cardStep()))}
+  function svcUpdate(){
+    const step=cardStep(), first=Math.round(svcTrack.scrollLeft/step), pv=Math.min(perView(),svcCards.length);
+    const a=Math.min(first,svcCards.length-pv)+1, b=Math.min(a+pv-1,svcCards.length);
+    svcCount.innerHTML='<b>'+String(a).padStart(2,'0')+(b>a?'–'+String(b).padStart(2,'0'):'')+'</b> de '+svcCards.length;
+    const max=svcTrack.scrollWidth-svcTrack.clientWidth, w=Math.max(10,svcTrack.clientWidth/svcTrack.scrollWidth*100);
+    svcBar.style.setProperty('--sw',w+'%');
+    svcBar.style.setProperty('--sx',(max>0?svcTrack.scrollLeft/max*(100-w)/w*100:0)+'%');
+    sPrev.disabled=svcTrack.scrollLeft<4; sNext.disabled=svcTrack.scrollLeft>max-4;
+  }
+  sPrev.addEventListener('click',()=>svcTrack.scrollBy({left:-cardStep()*perView()}));
+  sNext.addEventListener('click',()=>svcTrack.scrollBy({left:cardStep()*perView()}));
+  svcTrack.addEventListener('scroll',svcUpdate,{passive:true});
+  svcTrack.addEventListener('keydown',e=>{if(e.target!==svcTrack)return;if(e.key==='ArrowRight'){e.preventDefault();sNext.click()}if(e.key==='ArrowLeft'){e.preventDefault();sPrev.click()}});
+  window.addEventListener('resize',svcUpdate);
+  // mouse drag
+  (function(){
+    let on=false,x0=0,l0=0,moved=0;
+    svcTrack.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button!==0||e.target.closest('button,a'))return;on=true;moved=0;x0=e.clientX;l0=svcTrack.scrollLeft;svcTrack.classList.add('drag');svcTrack.setPointerCapture(e.pointerId)});
+    svcTrack.addEventListener('pointermove',e=>{if(!on)return;const dx=e.clientX-x0;moved=Math.max(moved,Math.abs(dx));svcTrack.scrollLeft=l0-dx});
+    const end=()=>{if(!on)return;on=false;svcTrack.classList.remove('drag');const st=cardStep();svcTrack.scrollTo({left:Math.round(svcTrack.scrollLeft/st)*st,behavior:'smooth'})};
+    svcTrack.addEventListener('pointerup',end);svcTrack.addEventListener('pointercancel',end);
+  })();
+  svcUpdate();
+
+  /* Service detail window */
+  const dlg=$('#svcDialog'), panels=$$('#panels .panel'), dlgCount=$('#dlgCount');
+  let ti=0, lastOpener=null;
+  function buildMedia(p){
+    const box=$('.panel-media',p); if(box.dataset.built)return;
+    const imgs=p.dataset.imgs.split(';').map(x=>{const [f,a]=x.split('|');return{src:'img/'+f+'.jpg',alt:a}});
+    const idx=panels.indexOf(p)+1;
+    const main=document.createElement('div'); main.className='panel-main';
+    const mi=document.createElement('img'); mi.src=imgs[0].src; mi.alt=imgs[0].alt; mi.width=800; mi.height=533;
+    const cnt=document.createElement('span'); cnt.className='count'; cnt.textContent=String(idx).padStart(2,'0')+' / 10';
+    main.append(mi,cnt);
+    const th=document.createElement('div'); th.className='thumbs';
+    imgs.forEach((im,k)=>{
+      const b=document.createElement('button'); b.type='button'; b.setAttribute('aria-pressed',k===0?'true':'false'); b.setAttribute('aria-label','Ver foto: '+im.alt);
+      const t=document.createElement('img'); t.src=im.src; t.alt='';
+      b.appendChild(t);
+      b.addEventListener('click',()=>{
+        const cur=$('img',main); const n=cur.cloneNode(); n.src=im.src; n.alt=im.alt; cur.replaceWith(n);
+        $$('button',th).forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+      });
+      th.appendChild(b);
+    });
+    let tx=null;
+    main.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+    main.addEventListener('touchend',e=>{
+      if(tx===null)return; const dx=e.changedTouches[0].clientX-tx; tx=null;
+      if(Math.abs(dx)<45)return;
+      const bs=$$('button',th), cur=bs.findIndex(b=>b.getAttribute('aria-pressed')==='true');
+      bs[(cur+(dx<0?1:-1)+bs.length)%bs.length].click();
+    });
+    box.append(main,th); box.dataset.built='1';
+  }
+  function show(i){
+    ti=(i+panels.length)%panels.length;
+    panels.forEach((p,k)=>{const on=k===ti; if(on){buildMedia(p);p.hidden=false;p.style.animation='none';void p.offsetWidth;p.style.animation=''}else p.hidden=true});
+    dlgCount.textContent=String(ti+1).padStart(2,'0')+' / '+panels.length;
+    dlg.setAttribute('aria-label',panels[ti].dataset.service);
+    dlg.scrollTop=0;
+  }
+  function openSvc(i,opener){
+    lastOpener=opener||null; show(i);
+    if(typeof dlg.showModal==='function'){if(!dlg.open)dlg.showModal()}else dlg.setAttribute('open','');
+    doc.classList.add('dlg-open');
+    $('#dlgClose').focus({preventScroll:true});
+  }
+  function closeSvc(){if(dlg.open){if(typeof dlg.close==='function')dlg.close();else dlg.removeAttribute('open')}}
+  dlg.addEventListener('close',()=>{doc.classList.remove('dlg-open');if(lastOpener)lastOpener.focus({preventScroll:true})});
+  dlg.addEventListener('click',e=>{if(e.target===dlg)closeSvc()});
+  dlg.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==='ArrowRight')show(ti+1);if(e.key==='ArrowLeft')show(ti-1)});
+  $('#dlgClose').addEventListener('click',closeSvc);
+  $('#dlgPrev').addEventListener('click',()=>show(ti-1));
+  $('#dlgNext').addEventListener('click',()=>show(ti+1));
+  $$('.more',svcTrack).forEach(b=>b.addEventListener('click',()=>openSvc(+b.dataset.open,b)));
+  // Preload service photos once idle
+  window.addEventListener('load',()=>setTimeout(()=>panels.forEach(p=>p.dataset.imgs.split(';').forEach(x=>{const i=new Image();i.src='img/'+x.split('|')[0]+'.jpg'})),1500));
+
+  /* Quote a service → preselect it in the form */
+  const sel=$('#f-service');
+  $$('[data-service]').filter(el=>el.tagName==='A').forEach(a=>a.addEventListener('click',()=>{
+    const name=a.dataset.service;
+    [...sel.options].forEach(o=>{if(o.text===name)sel.value=o.value||o.text});
+    lastOpener=null; closeSvc(); updateWA();
+    setTimeout(()=>$('#f-name').focus({preventScroll:true}),650);
+  }));
+
+  /* Process line */
+  const steps=$('#steps'), stepEls=$$('.step',steps), line=$('.steps-line',steps);
+  function processLine(){
+    const r=steps.getBoundingClientRect(), vh=window.innerHeight;
+    let p=(vh*.75-r.top)/(r.height+vh*.15); p=Math.max(0,Math.min(1,p));
+    if(reduce)p=1;
+    line.style.setProperty('--p',p.toFixed(3));
+    const desk=window.matchMedia('(min-width: 900px)').matches;
+    stepEls.forEach((s,k)=>{
+      const th=desk?(k/(stepEls.length-1))*.98:(k/stepEls.length);
+      s.classList.toggle('lit',p>=th-0.001 && p>0);
+    });
+  }
+
+  /* Parallax */
+  const px=$$('[data-parallax]');
+  function parallax(){
+    if(reduce)return;
+    const vh=window.innerHeight;
+    px.forEach(el=>{
+      const r=el.parentElement.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      const c=(r.top+r.height/2-vh/2)/vh;
+      el.style.transform='translate3d(0,'+(c*parseFloat(el.dataset.parallax)*-100).toFixed(2)+'%,0)';
+    });
+  }
+
+  /* Reveal (transform only — content is always visible) */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  $$('.rv').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top<window.innerHeight)el.classList.add('in'); else io.observe(el);
+  });
+
+  /* Count-up */
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return; cio.unobserve(e.target);
+    if(reduce)return;
+    const el=e.target, end=+el.dataset.count, t0=performance.now(), d=1100;
+    (function step(t){const k=Math.min(1,(t-t0)/d), v=Math.round(end*(1-Math.pow(1-k,3)));el.textContent=v;if(k<1)requestAnimationFrame(step)})(t0);
+  }),{threshold:.6});
+  $$('[data-count]').forEach(el=>{if(el.getBoundingClientRect().top>window.innerHeight)cio.observe(el)});
+
+  /* Gallery: drag, arrows, progress */
+  const track=$('#galTrack'), gbar=$('#galBar');
+  function galProgress(){
+    const max=track.scrollWidth-track.clientWidth;
+    const w=Math.max(12,track.clientWidth/track.scrollWidth*100);
+    gbar.style.setProperty('--gw',w+'%');
+    gbar.style.setProperty('--gx',(max>0?track.scrollLeft/max*(100-w)/w*100:0)+'%');
+  }
+  track.addEventListener('scroll',galProgress,{passive:true});
+  const stepW=()=>($('.gal-item',track).getBoundingClientRect().width+16);
+  $('#galPrev').addEventListener('click',()=>track.scrollBy({left:-stepW()*1.2}));
+  $('#galNext').addEventListener('click',()=>track.scrollBy({left:stepW()*1.2}));
+  track.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();track.scrollBy({left:stepW()})}if(e.key==='ArrowLeft'){e.preventDefault();track.scrollBy({left:-stepW()})}});
+  let dragging=false, startX=0, startL=0, moved=0;
+  track.addEventListener('pointerdown',e=>{
+    if(e.pointerType!=='mouse')return;
+    dragging=true; moved=0; startX=e.clientX; startL=track.scrollLeft;
+    track.classList.add('drag'); track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-startX;moved=Math.max(moved,Math.abs(dx));track.scrollLeft=startL-dx});
+  const endDrag=()=>{if(!dragging)return;dragging=false;track.classList.remove('drag');
+    // settle onto nearest card
+    const w=stepW(); const target=Math.round(track.scrollLeft/w)*w; track.scrollTo({left:target,behavior:'smooth'});};
+  track.addEventListener('pointerup',endDrag); track.addEventListener('pointercancel',endDrag);
+  window.addEventListener('resize',galProgress); galProgress();
+
+  /* Copy buttons */
+  $$('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+    const v=b.dataset.copy, done=()=>{b.textContent='Copiado';b.classList.add('ok');setTimeout(()=>{b.textContent='Copiar';b.classList.remove('ok')},1800)};
+    const fallback=()=>{const r=document.createRange();const t=b.parentElement.querySelector('.v');r.selectNodeContents(t);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Seleccionado'};
+    try{navigator.clipboard.writeText(v).then(done,fallback)}catch(_){fallback()}
+  }));
+
+  /* Quote form → WhatsApp message */
+  const form=$('#quote'), wa=$('#waSend'), note=$('#formNote');
+  const f={name:$('#f-name'),company:$('#f-company'),phone:$('#f-phone'),service:sel,msg:$('#f-msg')};
+  function msgText(){
+    const L=['Hola Amertec, quisiera una cotización.'];
+    L.push('Nombre: '+f.name.value.trim());
+    if(f.company.value.trim())L.push('Empresa: '+f.company.value.trim());
+    L.push('Celular: '+f.phone.value.trim());
+    L.push('Servicio: '+(f.service.value||'Por definir'));
+    if(f.msg.value.trim())L.push('Proyecto: '+f.msg.value.trim());
+    return L.join('\n');
+  }
+  function updateWA(){wa.href='https://wa.me/51953082717?text='+encodeURIComponent(msgText())}
+  function setErr(el,m){const box=el.closest('.field');box.classList.toggle('err',!!m);$('.msg',box).textContent=m||'';el.setAttribute('aria-invalid',m?'true':'false')}
+  function validate(){
+    let ok=true;
+    if(f.name.value.trim().length<2){setErr(f.name,'Escribe tu nombre.');ok=false}else setErr(f.name,'');
+    const digits=f.phone.value.replace(/\D/g,'');
+    if(digits.length<7){setErr(f.phone,'Escribe un número de al menos 7 dígitos.');ok=false}else setErr(f.phone,'');
+    if(!f.service.value){setErr(f.service,'Elige el servicio que necesitas.');ok=false}else setErr(f.service,'');
+    return ok;
+  }
+  Object.values(f).forEach(el=>el.addEventListener('input',()=>{updateWA();if(el.closest('.field').classList.contains('err'))validate()}));
+  sel.addEventListener('change',updateWA);
+  wa.addEventListener('click',e=>{
+    if(!validate()){e.preventDefault();note.textContent='Revisa los campos marcados.';const bad=$('.field.err input, .field.err select',form);if(bad)bad.focus();return}
+    updateWA();
+    note.textContent='Se abre WhatsApp con tu mensaje. Solo pulsa Enviar.';
+  });
+  form.addEventListener('submit',e=>{e.preventDefault();wa.click()});
+  updateWA();
+
+  $('#yr').textContent=new Date().getFullYear();
+  let raf=0;
+  window.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;onScroll()})},{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
